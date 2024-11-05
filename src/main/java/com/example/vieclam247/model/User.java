@@ -1,4 +1,6 @@
 package com.example.vieclam247.model;
+
+
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -41,6 +43,7 @@ public class User {
     private String company;
     private String descCompany;
     private String logoCompany;
+    private String filecv;
 
     // khai bao khoa ngoai
     @ManyToOne
@@ -111,60 +114,66 @@ public class User {
    
     @Override
     public String toString() {
-        return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName+ ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + ", dateOfBirth=" + dateOfBirth
-        + ", numPost=" + numPost + "]";
-}
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
+                + ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + ", dateOfBirth=" + dateOfBirth
+                + ", numPost=" + numPost + "]";
+    }
 
-public Role getRole() {
-return role;
-}
-public void setRole(Role role) {
-this.role = role;
-}
-public Plan getPlan() {
-return plan;
-}
-public void setPlan(Plan plan) {
-this.plan = plan;
-}
-public List<Job> getJobs() {
-return jobs;
-}
-public void setJobs(List<Job> jobs) {
-this.jobs = jobs;
-}
-public List<Apply> getApplys() {
-return applys;
-}
-public void setApplys(List<Apply> applys) {
-this.applys = applys;
-}
-public long getNumPost() {
-return numPost;
-}
-public void setNumPost(long numPost) {
-this.numPost = numPost;
-}
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
+    }
+    public Plan getPlan() {
+        return plan;
+    }
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+    public List<Job> getJobs() {
+        return jobs;
+    }
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
+    public List<Apply> getApplys() {
+        return applys;
+    }
+    public void setApplys(List<Apply> applys) {
+        this.applys = applys;
+    }
+    public long getNumPost() {
+        return numPost;
+    }
+    public void setNumPost(long numPost) {
+        this.numPost = numPost;
+    }
 
-public String getCompany() {
-return company;
-}
-public void setCompany(String company) {
-this.company = company;
-}
-public String getDescCompany() {
-return descCompany;
-}
-public void setDescCompany(String descCompany) {
-this.descCompany = descCompany;
-}
-public String getLogoCompany() {
-return logoCompany;
-}
-public void setLogoCompany(String logoCompany) {
-this.logoCompany = logoCompany;
-}
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
+    }
+    public String getDescCompany() {
+        return descCompany;
+    }
+    public void setDescCompany(String descCompany) {
+        this.descCompany = descCompany;
+    }
+    public String getLogoCompany() {
+        return logoCompany;
+    }
+    public void setLogoCompany(String logoCompany) {
+        this.logoCompany = logoCompany;
+    }
+    public String getFilecv() {
+        return filecv;
+    }
+    public void setFilecv(String filecv) {
+        this.filecv = filecv;
+    }
 
-
-
+    
 }

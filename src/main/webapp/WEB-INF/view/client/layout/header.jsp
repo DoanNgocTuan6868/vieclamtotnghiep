@@ -11,7 +11,7 @@
               <a class="nav-link" href="/job">Việc Làm </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Dịch vụ đăng tuyển</a>
+              <a class="nav-link" href="/dichvu">Dịch vụ đăng tuyển</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
