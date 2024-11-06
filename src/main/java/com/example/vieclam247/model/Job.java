@@ -26,8 +26,6 @@ public class Job {
     private String title; //tieu đề 1
 
     private String inductry; // ngành 3
-
-    @NotEmpty(message = "Trường thông tin không được để trống!")
     private String jobPosition; //vị trí tuyển dụng 2
     private String workingForm; //hinh thưc 5
     private String salary; // lương 6
@@ -38,7 +36,6 @@ public class Job {
     private String address; // địa chỉ 11
     private String degree; // bằng cấp 8
 
-    @NotEmpty(message = "Trường thông tin không được để trống!")
     private String yearOld; // tuôi 9
 
     @Min(value = 1 , message = "Số lương tuyển dụng phải lớn hơn 0!")
@@ -51,6 +48,9 @@ public class Job {
     private String contentjob; // moi dung mô tả 13
     private String status; // trang thái bài
     private String postingtime; // thời gian đăng
+    private String probation; // thời gian thử việc
+    private String logo; // logo
+    
 
     @NotEmpty(message = "Trường thông tin không được để trống!")
     private String dateline; // han tuyen dụng 12
@@ -159,13 +159,14 @@ public class Job {
         this.dateline = dateline;
     }
     
+    
     @Override
     public String toString() {
         return "Job [id=" + id + ", title=" + title + ", inductry=" + inductry + ", jobPosition=" + jobPosition
-                + ", workingForm=" + workingForm + ", salary=" + salary + ", area=" + area + ", address=" + address
-                + ", degree=" + degree + ", yearOld=" + yearOld + ", quantity=" + quantity + ", view=" + view
-                + ", contentjob=" + contentjob + ", status=" + status + ", postingtime=" + postingtime + ", dateline="
-                + dateline + "]";
+                + ", workingForm=" + workingForm + ", salary=" + salary + ", experience=" + experience + ", area="
+                + area + ", address=" + address + ", degree=" + degree + ", yearOld=" + yearOld + ", quantity="
+                + quantity + ", view=" + view + ", contentjob=" + contentjob + ", status=" + status + ", postingtime="
+                + postingtime + ", probation=" + probation + ", logo=" + logo + ", dateline=" + dateline + "]";
     }
     public User getUser() {
         return user;
@@ -184,6 +185,18 @@ public class Job {
     }
     public void setExperience(String experience) {
         this.experience = experience;
+    }
+    public String getProbation() {
+        return probation;
+    }
+    public void setProbation(String probation) {
+        this.probation = probation;
+    }
+    public String getLogo() {
+        return logo;
+    }
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     

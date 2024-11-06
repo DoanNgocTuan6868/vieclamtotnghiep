@@ -88,42 +88,7 @@ public class HomePageController {
     public String getErrorPage(Model model) {
         return "/client/auth/error_page";
     }
-    // tt tài khoản tuyển dụng
-    @GetMapping("/tuyendung/profile")
-    public String getProfile(Model model,HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        long idUser = (long) session.getAttribute("id");
-
-        User user = this.userService.getUserById(idUser);
-        model.addAttribute("userTD", user);
-        return "/client/tuyendung/profile";
-    }
-    @PostMapping("/tuyendung/profileUpdate")
-    public String postProfileUp(Model model,
-            @ModelAttribute("userTD") @Valid User userUp,
-            BindingResult UserBindingResult,
-            HttpServletRequest request,
-            RedirectAttributes redirectAttributes) {
-                // validate
-        if (UserBindingResult.hasErrors()) {
-            return "/client/tuyendung/profile";
-        }
-        HttpSession session = request.getSession(false);
-        long idUser = (long) session.getAttribute("id");
-        User currenUser = this.userService.getUserById(idUser);
-
-        currenUser.setAddRess(userUp.getAddRess());
-        currenUser.setFullName(userUp.getFullName());
-        currenUser.setPhone(userUp.getPhone());
-        currenUser.setDateOfBirth(userUp.getDateOfBirth());
-        currenUser.setCompany(userUp.getCompany());
-        currenUser.setDescCompany(userUp.getDescCompany());
-        currenUser.setDesclongcpn(userUp.getDesclongcpn());
-        this.userService.updateUser(currenUser);
-        redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
     
-        return "redirect:/tuyendung/profile";
-    }
     // tt tài khoản ứng viên
      @GetMapping("/ungvien/profile")
      public String getProfileUv(Model model,HttpServletRequest request) {

@@ -1113,7 +1113,7 @@ span.salary-min::after {
 
 /* pagination css */
 .pagination {
-    display: block;
+    display: flex !important;
     width: 75%;
     margin: 1em auto;
     text-align: center;
