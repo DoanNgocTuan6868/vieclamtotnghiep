@@ -61,8 +61,8 @@
                     </p>
                   </div>
                   <hr>
-                  <a class="dropdown-item" href="/ungvien/profile"></a>"><i class="bi bi-person-circle"></i> Quản lý tài khoản</a>
-                  <a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text"></i>Danh sách ứng tuyển</a>
+                  <a class="dropdown-item" href="/ungvien/profile"> <i class="bi bi-person-circle"></i> Thông tin tài khoản</a>
+                  <a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text"></i> Danh sách ứng tuyển</a>
                   <a class="dropdown-item" href="#"><i class="bi bi-heart"></i> Việc làm đã lưu</a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-chat"></i> Phản hồi công việc</a>
 
@@ -102,7 +102,7 @@
                     
                   </div>
                   <hr>
-                  <a class="dropdown-item" href="#"> <i class="bi bi-person-circle"></i> Thông tin công ty</a>
+                  <a class="dropdown-item" href="/tuyendung/profile"> <i class="bi bi-person-circle"></i> Thông tin công ty</a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-pencil-square"></i> Đăng tin việc làm</a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-clock"></i> Danh sách bài đăng chờ</a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-file-earmark-text"></i>Danh sách ứng viên </a>

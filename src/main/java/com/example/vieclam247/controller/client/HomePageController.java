@@ -1,5 +1,7 @@
 package com.example.vieclam247.controller.client;
 
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.vieclam247.model.Plan;
 import com.example.vieclam247.model.User;
 import com.example.vieclam247.model.dto.RegisterDTO;
+import com.example.vieclam247.service.PlanService;
 import com.example.vieclam247.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
+
 
 
 
@@ -21,15 +31,20 @@ public class HomePageController {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final PlanService planService;
 
-    public HomePageController(UserService userService,PasswordEncoder passwordEncoder) {
+  
+
+    public HomePageController(UserService userService, PasswordEncoder passwordEncoder, PlanService planService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
-        
+        this.planService = planService;
     }
 
     @GetMapping("/")
-    public String getMethodName() {
+    public String getHomedv(Model model) {
+        List<Plan> listplans = this.planService.getPlanAllTop();
+        model.addAttribute("listplans", listplans);
         return "/client/home/show";
     }
 
@@ -73,5 +88,77 @@ public class HomePageController {
     public String getErrorPage(Model model) {
         return "/client/auth/error_page";
     }
+    // tt tài khoản tuyển dụng
+    @GetMapping("/tuyendung/profile")
+    public String getProfile(Model model,HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long idUser = (long) session.getAttribute("id");
+
+        User user = this.userService.getUserById(idUser);
+        model.addAttribute("userTD", user);
+        return "/client/tuyendung/profile";
+    }
+    @PostMapping("/tuyendung/profileUpdate")
+    public String postProfileUp(Model model,
+            @ModelAttribute("userTD") @Valid User userUp,
+            BindingResult UserBindingResult,
+            HttpServletRequest request,
+            RedirectAttributes redirectAttributes) {
+                // validate
+        if (UserBindingResult.hasErrors()) {
+            return "/client/tuyendung/profile";
+        }
+        HttpSession session = request.getSession(false);
+        long idUser = (long) session.getAttribute("id");
+        User currenUser = this.userService.getUserById(idUser);
+
+        currenUser.setAddRess(userUp.getAddRess());
+        currenUser.setFullName(userUp.getFullName());
+        currenUser.setPhone(userUp.getPhone());
+        currenUser.setDateOfBirth(userUp.getDateOfBirth());
+        currenUser.setCompany(userUp.getCompany());
+        currenUser.setDescCompany(userUp.getDescCompany());
+        currenUser.setDesclongcpn(userUp.getDesclongcpn());
+        this.userService.updateUser(currenUser);
+        redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
+    
+        return "redirect:/tuyendung/profile";
+    }
+    // tt tài khoản ứng viên
+     @GetMapping("/ungvien/profile")
+     public String getProfileUv(Model model,HttpServletRequest request) {
+         HttpSession session = request.getSession(false);
+         long idUser = (long) session.getAttribute("id");
+ 
+         User user = this.userService.getUserById(idUser);
+         model.addAttribute("userTD", user);
+         return "/client/ungvien/profile";
+     }
+     @PostMapping("/ungvien/profileUpdate")
+     public String postProfileUpUV(Model model,
+             @ModelAttribute("userTD") @Valid User userUp,
+             BindingResult UserBindingResult,
+             HttpServletRequest request,
+             RedirectAttributes redirectAttributes) {
+                 // validate
+         if (UserBindingResult.hasErrors()) {
+             return "/client/ungvien/profile";
+         }
+         HttpSession session = request.getSession(false);
+         long idUser = (long) session.getAttribute("id");
+         User currenUser = this.userService.getUserById(idUser);
+ 
+         currenUser.setAddRess(userUp.getAddRess());
+         currenUser.setFullName(userUp.getFullName());
+         currenUser.setPhone(userUp.getPhone());
+         currenUser.setDateOfBirth(userUp.getDateOfBirth());
+         this.userService.updateUser(currenUser);
+         redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
+     
+         return "redirect:/ungvien/profile";
+     }
+    
+   
+    
 
 }

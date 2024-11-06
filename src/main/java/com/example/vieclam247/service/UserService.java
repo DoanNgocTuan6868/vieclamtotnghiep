@@ -30,6 +30,10 @@ public class UserService {
         System.out.println(userNew);
         return userNew;
     }
+
+    public User updateUser(User user){
+        return this.userRepository.save(user);
+    }
     public List<User>getListUser(){
         return this.userRepository.findAll();
 

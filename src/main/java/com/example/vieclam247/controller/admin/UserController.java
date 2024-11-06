@@ -70,6 +70,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
+    
     // sửa
     @GetMapping("/admin/user/update/{id}")
     public String getMethodName(Model model, @PathVariable long id) {

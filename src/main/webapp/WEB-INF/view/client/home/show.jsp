@@ -1608,16 +1608,18 @@ $(document).ready(function() {
 <div class="clearfix"></div>
 
 <!-- Gói đăng tin tuyển dụng  -->
+<!-- Gói đăng tin tuyển dụng  -->
 <h2 class="text-center my-4">Gói Đăng Tin Tuyển Dụng</h2>
     <div class="container my-5">
       <div class="row g-4 text-center">
         <!-- Basic Package -->
+        <c:forEach var="plan" items="${listplans}">
         <div class="col-md-4">
           <div class="card h-100 shadow-lg border-0">
             <div class="card-body d-flex flex-column justify-content-between">
               <div>
                 <h5 class="card-title bg-primary text-white py-2 rounded">
-                  Gói Cơ Bản
+                    ${plan.name}
                 </h5>
                 <p class="card-text">
                   Phù hợp cho công ty nhỏ tìm kiếm ứng viên chủ chốt.
@@ -1628,70 +1630,21 @@ $(document).ready(function() {
                   <li class="list-group-item">Hỗ trợ cơ bản</li>
                 </ul>
               </div>
-              <h3 class="card-text">$199/tháng</h3>
-              <a href="#" class="btn btn-outline-primary w-100 mt-3"
-                >Chọn Gói Cơ Bản</a
-              >
+              <h3 class="card-text"><fmt:formatNumber type="number" value="${plan.price}" /> đ/tháng</h3>
+              <form action="/dkdichvu" method="post">
+                <input type="hidden" type="text" value="${plan.id}" name="id">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <button class="btn btn-outline-primary w-100 mt-3">Đăng ký gói</button>
+            </form>
             </div>
           </div>
         </div>
-
-        <!-- Standard Package -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-lg border-0">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title bg-success text-white py-2 rounded">
-                  Gói Tiêu Chuẩn
-                </h5>
-                <p class="card-text">
-                  Thích hợp cho doanh nghiệp có nhu cầu tuyển dụng cao hơn.
-                </p>
-                <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item">3 lần đăng tin tuyển dụng</li>
-                  <li class="list-group-item">10 lượt xem hồ sơ</li>
-                  <li class="list-group-item">Hỗ trợ ưu tiên</li>
-                </ul>
-              </div>
-              <h3 class="card-text">$399/tháng</h3>
-              <a href="#" class="btn btn-outline-primary w-100 mt-3"
-                >Chọn Gói Tiêu Chuẩn</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- Premium Package -->
-        <div class="col-md-4">
-          <div class="card h-100 shadow-lg border-0">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <h5 class="card-title bg-danger text-white py-2 rounded">
-                  Gói Cao Cấp
-                </h5>
-                <p class="card-text">
-                  Phù hợp cho doanh nghiệp cần tuyển dụng với số lượng lớn.
-                </p>
-                <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item">
-                    Đăng tin tuyển dụng không giới hạn
-                  </li>
-                  <li class="list-group-item">Xem hồ sơ không giới hạn</li>
-                  <li class="list-group-item">
-                    Quản lý tài khoản chuyên nghiệp
-                  </li>
-                </ul>
-              </div>
-              <h3 class="card-text">$999/tháng</h3>
-              <a href="#" class="btn btn-outline-primary w-100 mt-3"
-                >Chọn Gói Cao Cấp</a
-              >
-            </div>
-          </div>
-        </div>
+    </c:forEach>
+       
       </div>
     </div>
 <!-- (end) news -->
+
 
 <!-- job support -->
 <div class="container-fluid job-support-wrapper">

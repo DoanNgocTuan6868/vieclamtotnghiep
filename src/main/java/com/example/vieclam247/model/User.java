@@ -3,6 +3,7 @@ package com.example.vieclam247.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,6 +45,12 @@ public class User {
     private String descCompany;
     private String logoCompany;
     private String filecv;
+    private String companyAdress;
+
+    @Column(columnDefinition = "MEDIUMTEXT")
+    private String desclongcpn;
+    
+    
 
     // khai bao khoa ngoai
     @ManyToOne
@@ -173,6 +180,18 @@ public class User {
     }
     public void setFilecv(String filecv) {
         this.filecv = filecv;
+    }
+    public String getCompanyAdress() {
+        return companyAdress;
+    }
+    public void setCompanyAdress(String companyAdress) {
+        this.companyAdress = companyAdress;
+    }
+    public String getDesclongcpn() {
+        return desclongcpn;
+    }
+    public void setDesclongcpn(String desclongcpn) {
+        this.desclongcpn = desclongcpn;
     }
 
     
