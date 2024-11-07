@@ -94,40 +94,83 @@
                 <div class="tab-content search-tab-content" id="myTabContent">
                   <!-- content tab 1 -->
                   <div class="tab-pane stab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form class="bn-search-form">
+                    <form method="get" action="/job" class="bn-search-form">
                       <div class="row">
                         <div class="col-md-10 col-sm-12">
                           <div class="row">
+                            <div class="col-md-5 d-none">
+                              <div class="input-group s-input-group">
+                                <input type="text" class="form-control sinput" name="page" value="1">
+                                <span><i class="fa fa-search"></i></span>
+                              </div>
+                            </div>
+
                             <div class="col-md-5">
                               <div class="input-group s-input-group">
-                                <input type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
+                                <input name="name" type="text" class="form-control sinput" placeholder="Nhập kỹ năng, công việc,...">
                                 <span><i class="fa fa-search"></i></span>
                               </div>
                             </div>
                             <div class="col-md-4">
-                              <select id="computer-languages">
-                                <option value="" selected hidden >Tất cả ngôn ngữ</option>
-                                <option>Java</option>
-                                <option>.NET</option>
-                                <option>Javascript</option>
-                                <option>Php</option>
-                                <option>Python</option>
-                                <option>QC QC</option>
-                                <option>Business Analyst</option>
-                                <option>Tester</option>
-                                <option>Ruby</option>
+                              <select name="inductry" id="computer-languages">
+                                <option value="" selected hidden >chọn ngành</option>
+                                <option value="Kinh doanh">Kinh doanh</option>
+                                <option value="Bán hàng">Bán hàng</option>
+                                <option value="Chăm sóc khách hàng">Chăm sóc khách hàng</option>
+                                <option value="Tài chính/Kế toán/Kiểm toán">Tài chính/Kế toán/Kiểm toán</option>
+                                <option value="Hành chính/Thư ký/Trợ lý">Hành chính/Thư ký/Trợ lý</option>
+                                <option value="Lao động phổ thông">Lao động phổ thông</option>
+                                <option value="Cơ khí/Kĩ thuật ứng dụng">Cơ khí/Kĩ thuật ứng dụng</option>
+                                <option value="Sinh viên/Mới tốt nghiệp/Thực tập">Sinh viên/Mới tốt nghiệp/Thực tập</option>
+                                <option value="Điện/Điện tử/Điện lạnh">Điện/Điện tử/Điện lạnh</option>
+                                <option value="Báo chí/Biên tập viên">Báo chí/Biên tập viên</option>
+                                <option value="Bảo vệ/Vệ sĩ/An ninh">Bảo vệ/Vệ sĩ/An ninh</option>
+                                <option value="Bất động sản">Bất động sản</option>
+                                <option value="Biên dịch/Phiên dịch">Biên dịch/Phiên dịch</option>
+                                <option value="Bưu chính viễn thông">Bưu chính viễn thông</option>
+                                <option value="Công nghệ thông tin">Công nghệ thông tin</option>
+                                <option value="Dầu khí/Địa chất">Dầu khí/Địa chất</option>
+                                <option value="Dệt may">Dệt may</option>
+                                <option value="Ngân hàng">Ngân hàng</option>
                             </select>
                             <i class="fa fa-code sfa" aria-hidden="true"></i>
                             </div>
                             <div class="col-md-3">
-                              <select id="s-provinces">
+                              <select name="area" id="s-provinces">
                                 <option value="" selected hidden >Tất cả địa điểm</option>
-                                <option>Đà Nẵng</option>
-                                <option>Hà Nội</option>
-                                <option>Hồ Chí Minh</option>
-                                <option>Buôn Ma Thuột</option>
-                                <option>Quy Nhơn</option>
-                                <option>Nha Trang</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="An Giang">An Giang</option>
+                                    <option value="Bạc Liêu">Bạc Liêu</option>
+                                    <option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option>
+                                    <option value="Bắc Cạn">Bắc Cạn</option>
+                                    <option value="Bắc Giang">Bắc Giang</option>
+                                    <option value="Bắc Ninh">Bắc Ninh</option>
+                                    <option value="Bến Tre">Bến Tre</option>
+                                    <option value="Bình Dương">Bình Dương</option>
+                                    <option value="Bình Định">Bình Định</option>
+                                    <option value="Bình Phước">Bình Phước</option>
+                                    <option value="Bình Thuận">Bình Thuận</option>
+                                    <option value="Cao Bằng">Cao Bằng</option>
+                                    <option value="Cà Mau">Cà Mau</option>
+                                    <option value="Cần Thơ">Cần Thơ</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="Đắk Lắk">Đắk Lắk</option>
+                                    <option value="Đắk Nông">Đắk Nông</option>
+                                    <option value="Điện Biên">Điện Biên</option>
+                                    <option value="Đồng Nai">Đồng Nai</option>
+                                    <option value="Đồng Tháp">Đồng Tháp</option>
+                                    <option value="Gia Lai">Gia Lai</option>
+                                    <option value="Hà Giang">Hà Giang</option>
+                                    <option value="Hà Nam">Hà Nam</option>
+                                    <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                    <option value="Hải Dương">Hải Dương</option>
+                                    <option value="Hải Phòng">Hải Phòng</option>
+                                    <option value="Nam Định">Nam Định</option>
+                                    <option value="Nghệ An">Nghệ An</option>
+                                    <option value="Ninh Bình">Ninh Bình</option>
+                                    <option value="Ninh Thuận">Ninh Thuận</option>
+                                    
                             </select>
                             <i class="fa fa-map-marker sfa" aria-hidden="true"></i>
                             </div>
@@ -414,227 +457,75 @@
                         </div> <!-- ./ collapse -->
                             </div>
                 <div class="col-md-9 col-sm-12 col-12">
-                  <h4 class="search-find">Tìm thấy 4 việc làm đang tuyển dụng</h4>
+                  <h4 class="search-find">Việc làm tuyển dụng</h4>
                   <div class="job-board-wrap">
                     <div class="job-group">
-                      <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/fpt-logo.png" class="job-logo-ima" alt="job-logo">
+                      <c:if test="${totalPages ==  0}">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="text-center" >Không tìm thấy việc làm</div>
+                                </div>
+                            </c:if>
+                            <c:forEach var="job" items="${listjob}">
+                              <div class="job pagi">
+                                <div class="job-content">
+                                  <div class="job-logo">
+                                    <a href="/job/chitiet/${job.id}">
+                                      <img src="/images/company/${job.logo}" class="job-logo-ima" alt="job-logo">
+                                    </a>
+                                  </div>
+                  
+                                  <div class="job-desc">
+                                    <div class="job-title">
+                                      <a href="/job/chitiet/${job.id}">${job.title}</a>
+                                    </div>
+                                    <div class="job-company">
+                                      <a href="/job/chitiet/${job.id}">${job.user.company}</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i> ${job.area}</a>
+                                    </div>
+                  
+                                    <div class="job-inf">
+                                     
+                                      <div class="job-salary">
+                                        <i class="fa fa-money" aria-hidden="true"></i>
+                                        <span class="salary-min">${job.salary}</span>
+                                        
+                                      </div>
+                                      <div class="job-deadline">
+                                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>${job.dateline}</strong></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="wrap-btn-appl">
+                                    <a href="/job/chitiet/${job.id}" class="btn btn-appl">Apply Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </c:forEach>
+                    </div>
+                    <c:if test="${totalPages > 0}">
+                      <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                          <c:if test="${curentPage != 1}">
+                            <li class="page-item disabled">
+                              <a class="page-link" href="/job?page=${curentPage -1}${queryString}" tabindex="-1" aria-disabled="true">
+                                <span aria-hidden="true">&laquo;</span>
                               </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">[HCM] 02 Solution Architects–Up to $2000</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">Fpt Software</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Đà Nẵng</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/alipay-logo.png" class="job-logo-ima" alt="job-logo">
+                            </li>
+                          </c:if>
+                          <c:forEach begin="0" end="${totalPages - 1}" varStatus="loop">
+                            <li class="page-item ${(loop.index + 1) eq curentPage ? 'active':''}"><a class="page-link" href="/job?page=${loop.index + 1}${queryString}">${loop.index + 1}</a></li>
+                          </c:forEach>
+                          <c:if test="${curentPage != totalPages}">
+                            <li class="page-item">
+                              <a class="page-link" href="/job?page=${curentPage + 1}${queryString}">
+                                <span aria-hidden="true">&raquo;</span>
                               </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">Fullstack .NET Developer (Angular/React)</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">Orient Software</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Hà Nội</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> .NET</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/02/2020</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/nvg-logo.png" class="job-logo-ima" alt="job-logo">
-                              </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">Frontend Developer (JavaScript, ReactJS)</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">mgm technology</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Đà Nẵng</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> JavaScript, ReactJS</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/luxoft-vietnam-logo.png" class="job-logo-ima" alt="job-logo">
-                              </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">IVI System Test Engineer</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">NVG TECHNOLOGY</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Đà Nẵng</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Javascript</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/fpt-logo.png" class="job-logo-ima" alt="job-logo">
-                              </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">[HCM] 02 Solution Architects–Up to $2000</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">Fpt Software</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Đà Nẵng</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="job pagi">
-                          <div class="job-content">
-                            <div class="job-logo">
-                              <a href="#">
-                                <img src="client/img/fpt-logo.png" class="job-logo-ima" alt="job-logo">
-                              </a>
-                            </div>
-            
-                            <div class="job-desc">
-                              <div class="job-title">
-                                <a href="#">[HCM] 02 Solution Architects–Up to $2000</a>
-                              </div>
-                              <div class="job-company">
-                                <a href="#">Fpt Software</a> | <a href="#" class="job-address"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Đà Nẵng</a>
-                              </div>
-            
-                              <div class="job-inf">
-                                <div class="job-main-skill">
-                                  <i class="fa fa-code" aria-hidden="true"></i>  <a href="#"> Java</a>
-                                </div>
-                                <div class="job-salary">
-                                  <i class="fa fa-money" aria-hidden="true"></i>
-                                  <span class="salary-min">15<em class="salary-unit">triệu</em></span>
-                                  <span class="salary-max">35 <em class="salary-unit">triệu</em></span>
-                                </div>
-                                <div class="job-deadline">
-                                  <span><i class="fa fa-clock-o" aria-hidden="true"></i>  Hạn nộp: <strong>31/12/2019</strong></span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="wrap-btn-appl">
-                              <a href="#" class="btn btn-appl">Apply Now</a>
-                            </div>
-                          </div>
-                        </div>
-            
-            </div>
+                            </li>
+                          </c:if>
+                          
+                        </ul>
+                      </nav>
+                    </c:if>
+                   
                   </div>
                   
                 </div>

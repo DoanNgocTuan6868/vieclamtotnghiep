@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.vieclam247.model.Job;
 import com.example.vieclam247.model.Plan;
 import com.example.vieclam247.model.User;
 import com.example.vieclam247.model.dto.RegisterDTO;
+import com.example.vieclam247.service.JobService;
 import com.example.vieclam247.service.PlanService;
 import com.example.vieclam247.service.UserService;
 
@@ -32,19 +34,29 @@ public class HomePageController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final PlanService planService;
+    private final JobService jobService;
 
   
 
-    public HomePageController(UserService userService, PasswordEncoder passwordEncoder, PlanService planService) {
+    
+
+    public HomePageController(UserService userService, PasswordEncoder passwordEncoder, PlanService planService,
+            JobService jobService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
         this.planService = planService;
+        this.jobService = jobService;
     }
-
+//  xử lý trang home
     @GetMapping("/")
     public String getHomedv(Model model) {
+        List<Job> jobs = jobService.getTop6JobsByStatus("Đăng bài");
         List<Plan> listplans = this.planService.getPlanAllTop();
+        List<Job> ListJobInductry = this.jobService.getTop10JobsByInductryAndStatus("Công nghệ thông tin", "Đăng bài");
+        model.addAttribute("listJob", jobs);
         model.addAttribute("listplans", listplans);
+        model.addAttribute("ListJobInductry", ListJobInductry);
+
         return "/client/home/show";
     }
 
@@ -122,6 +134,8 @@ public class HomePageController {
      
          return "redirect:/ungvien/profile";
      }
+
+     // list job
     
    
     

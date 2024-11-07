@@ -156,7 +156,7 @@
                             <div class="col-md-3">
                               <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                  <input type='file' name="imgavatar" id="imageUpload" accept=".png, .jpg, .jpeg, .webp" />
                                   <label for="imageUpload"></label>
                                 </div>
                                 <div class="avatar-preview">

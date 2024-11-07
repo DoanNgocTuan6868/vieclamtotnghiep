@@ -20,14 +20,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.vieclam247.model.Job;
 import com.example.vieclam247.model.User;
 import com.example.vieclam247.service.JobService;
-import com.example.vieclam247.service.PlanService;
+
 import com.example.vieclam247.service.UploadService;
 import com.example.vieclam247.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class TuyendungController {
@@ -57,6 +57,7 @@ public class TuyendungController {
             @ModelAttribute("userTD") @Valid User userUp,
             BindingResult UserBindingResult,
             HttpServletRequest request,
+            @RequestParam("imgavatar") MultipartFile file,
             RedirectAttributes redirectAttributes) {
         // validate
         if (UserBindingResult.hasErrors()) {
@@ -65,7 +66,11 @@ public class TuyendungController {
         HttpSession session = request.getSession(false);
         long idUser = (long) session.getAttribute("id");
         User currenUser = this.userService.getUserById(idUser);
-
+        if(!file.isEmpty()){
+            String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+            currenUser.setAvatar(avatar);
+        }
+        
         currenUser.setAddRess(userUp.getAddRess());
         currenUser.setFullName(userUp.getFullName());
         currenUser.setPhone(userUp.getPhone());
@@ -162,12 +167,17 @@ public class TuyendungController {
             @ModelAttribute("jobup") @Valid Job jobup,
             BindingResult jobupBindingResult,
             HttpServletRequest request,
+            @RequestParam("imglogo") MultipartFile file,
             RedirectAttributes redirectAttributes) {
                 if (jobupBindingResult.hasErrors()) {
                     return "/client/tuyendung/updatejob";
                 }
                 Job currenJob = this.jobService.getJobById(jobup.getId());
                 if (currenJob != null) {
+                    if(!file.isEmpty()){
+                        String logo = this.uploadService.handeSaveUploadFile(file, "company");
+                        currenJob.setLogo(logo);
+                    }
                     currenJob.setTitle(jobup.getTitle());
                     currenJob.setJobPosition(jobup.getJobPosition());
                     currenJob.setInductry(jobup.getInductry());

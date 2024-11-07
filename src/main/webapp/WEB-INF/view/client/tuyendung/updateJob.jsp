@@ -281,6 +281,7 @@
                                     <form:option value="Công nghệ thông tin">Công nghệ thông tin</form:option>
                                     <form:option value="Dầu khí/Địa chất">Dầu khí/Địa chất</form:option>
                                     <form:option value="Dệt may">Dệt may</form:option>
+                                    <form:option value="Ngân hàng">Ngân hàng</form:option>
                                     
                                     <!-- <option value="24">Dược/Hóa chất/Sinh hóa</option>
                                     <option value="25">Giải trí/Vui chơi</option>
