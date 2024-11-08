@@ -101,40 +101,7 @@ public class HomePageController {
         return "/client/auth/error_page";
     }
     
-    // tt tài khoản ứng viên
-     @GetMapping("/ungvien/profile")
-     public String getProfileUv(Model model,HttpServletRequest request) {
-         HttpSession session = request.getSession(false);
-         long idUser = (long) session.getAttribute("id");
- 
-         User user = this.userService.getUserById(idUser);
-         model.addAttribute("userTD", user);
-         return "/client/ungvien/profile";
-     }
-     @PostMapping("/ungvien/profileUpdate")
-     public String postProfileUpUV(Model model,
-             @ModelAttribute("userTD") @Valid User userUp,
-             BindingResult UserBindingResult,
-             HttpServletRequest request,
-             RedirectAttributes redirectAttributes) {
-                 // validate
-         if (UserBindingResult.hasErrors()) {
-             return "/client/ungvien/profile";
-         }
-         HttpSession session = request.getSession(false);
-         long idUser = (long) session.getAttribute("id");
-         User currenUser = this.userService.getUserById(idUser);
- 
-         currenUser.setAddRess(userUp.getAddRess());
-         currenUser.setFullName(userUp.getFullName());
-         currenUser.setPhone(userUp.getPhone());
-         currenUser.setDateOfBirth(userUp.getDateOfBirth());
-         this.userService.updateUser(currenUser);
-         redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
-     
-         return "redirect:/ungvien/profile";
-     }
-
+   
      // list job
     
    

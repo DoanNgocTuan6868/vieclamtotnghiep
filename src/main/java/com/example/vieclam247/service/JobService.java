@@ -10,9 +10,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.example.vieclam247.model.Job;
+import com.example.vieclam247.model.JobSave;
 import com.example.vieclam247.model.User;
 import com.example.vieclam247.model.dto.JobCriteriaDTO;
 import com.example.vieclam247.repository.JobRepository;
+import com.example.vieclam247.repository.JobSaveRepository;
 import com.example.vieclam247.service.specification.JobSpecs;
 
 @Service
@@ -20,9 +22,12 @@ import com.example.vieclam247.service.specification.JobSpecs;
 
 public class JobService {
     private final JobRepository jobRepository;
+    private final JobSaveRepository jobSaveRepository;
 
-    public JobService(JobRepository jobRepository) {
+   
+    public JobService(JobRepository jobRepository, JobSaveRepository jobSaveRepository) {
         this.jobRepository = jobRepository;
+        this.jobSaveRepository = jobSaveRepository;
     }
     public Job handSaveJob(Job job){
         Job jobnew = this.jobRepository.save(job);
@@ -88,4 +93,20 @@ public class JobService {
         // Sử dụng phương thức findAll với Specification và sắp xếp theo `view` giảm dần
         return jobRepository.findAll(combinedSpec, PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), Sort.by(Sort.Direction.DESC, "view")));
     }
+
+    public JobSave getJobLikeByUserAndJob(User user, Job job){
+        return this.jobSaveRepository.findByUserAndJob(user, job);
+    }
+    public JobSave handSaveJobLike(JobSave joblikenew){
+        JobSave jobLike = this.jobSaveRepository.save(joblikenew);
+        System.out.println(jobLike);
+        return jobLike;
+    }
+    public Page<JobSave> getJobLikeByUser(User user,Pageable pageable){
+        return this.jobSaveRepository.findByUser(user, pageable);
+    }
+    public void deleteJoblikeById(long id){
+        this.jobSaveRepository.deleteById(id);
+    }
+
 }

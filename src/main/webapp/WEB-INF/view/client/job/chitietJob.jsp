@@ -130,9 +130,16 @@
                       <div class="col-md-3 col-sm-12 col-12">
                         <div class="jd-header-wrap-right">
                           <div class="jd-center" style="display: flex; gap: 5px; align-items: center;">
-                            <a href="#" class="btn  btn-warning btn-sm text-white">
+                            <form action="/addJobSave/${job.id}" method="post">
+
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            <button  class="btn  btn-warning btn-sm text-white">
                               <i class="fa fa-heart"></i> Lưu công việc
-                            </a>
+                            </button>
+                            </form>
+                            <!-- <a href="#" class="btn  btn-warning btn-sm text-white">
+                              <i class="fa fa-heart"></i> Lưu công việc
+                            </a> -->
                             <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#applyModal">Nộp đơn</a>
                           </div>
                           
@@ -153,33 +160,33 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form id="applyForm">
+                      <form:form method="post" enctype="multipart/form-data" action="/nopcv/${job.id}" modelAttribute="applyNew" id="applyForm">
                         <div class="mb-3">
                           <label for="fullName" class="form-label">Họ và tên</label>
-                          <input type="text" class="form-control" id="fullName" required>
+                          <form:input type="text" class="form-control" id="fullName"  path="receiverName"/>
                         </div>
                         <div class="mb-3">
                             <label for="sdt" class="form-label">sdt</label>
-                            <input type="text" class="form-control" id="sdt" required>
+                            <form:input type="text" class="form-control" id="sdt" path="receiverPhone"/>
                           </div>
                         <div class="mb-3">
                           <label for="email" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="email" required>
+                          <form:input type="email" class="form-control" id="email" path="receiverEmail"/>
                         </div>
                         <div class="mb-3">
                           <label for="resume" class="form-label">CV</label>
-                          <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx" required>
+                          <input type="file" name="fileCV" class="form-control" id="resume" accept=".pdf,.doc,.docx">
                         </div>
                         <div class="mb-3">
                           <label for="coverLetter" class="form-label">Thư xin việc</label>
-                          <textarea class="form-control" id="coverLetter" rows="3"></textarea>
+                          <form:textarea class="form-control" id="coverLetter" rows="3" path="mess"></form:textarea>
                         </div>
-                      </form>
+                        <div class="mb-3">
+                          <button class="btn btn-primary">Gửi đơn</button>
+                        </div>
+                      </form:form>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                      <button type="submit" form="applyForm" class="btn btn-primary">Gửi đơn</button>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -437,24 +444,7 @@
                 <script src="/client/js/owlcarousel/owl.carousel.js"></script>
                 <!-- Read More Plugin -->
                 <!-- js modal -->
-                 <script>
-                    document.getElementById('applyForm').onsubmit = function(e) {
-              e.preventDefault(); // Ngăn không cho form gửi theo cách mặc định
-            
-              // Lấy giá trị từ form
-              const fullName = document.getElementById('fullName').value;
-              const email = document.getElementById('email').value;
-              const resume = document.getElementById('resume').files[0];
-              const coverLetter = document.getElementById('coverLetter').value;
-            
-              // Xử lý dữ liệu ở đây (ví dụ: gửi lên server)
-            
-              // Đóng modal
-              $('#applyModal').modal('hide');
-              alert('Đơn đã được gửi thành công!');
-            };
-            
-                 </script>
+                 
             
                 
             

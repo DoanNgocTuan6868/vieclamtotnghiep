@@ -62,8 +62,8 @@
                   </div>
                   <hr>
                   <a class="dropdown-item" href="/ungvien/profile"> <i class="bi bi-person-circle"></i> Thông tin tài khoản</a>
-                  <a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text"></i> Danh sách ứng tuyển</a>
-                  <a class="dropdown-item" href="#"><i class="bi bi-heart"></i> Việc làm đã lưu</a>
+                  <a class="dropdown-item" href="/ungvien/dsungtuyen"><i class="bi bi-file-earmark-text"></i> Danh sách ứng tuyển</a>
+                  <a class="dropdown-item" href="/jobsavepage"><i class="bi bi-heart"></i> Việc làm đã lưu</a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-chat"></i> Phản hồi công việc</a>
 
                   <hr>
@@ -105,8 +105,8 @@
                   <a class="dropdown-item" href="/tuyendung/profile"> <i class="bi bi-person-circle"></i> Thông tin công ty</a>
                   <a class="dropdown-item" href="/tuyendung/dangvieclam"> <i class="bi bi-pencil-square"></i> Đăng tin việc làm</a>
                   <a class="dropdown-item" href="/tuyendung/dschoduyetbaidang"> <i class="bi bi-clock"></i> Danh sách bài đăng chờ</a>
-                  <a class="dropdown-item" href="#"> <i class="bi bi-file-earmark-text"></i>Danh sách ứng viên </a>
-                  <a class="dropdown-item" href="#"> <i class="bi bi-file-earmark-text"></i>Hồ sơ đã ứng tuyển </a>
+                  <a class="dropdown-item" href="/tuyendung/dsungvien"> <i class="bi bi-file-earmark-text"></i>Danh sách ứng viên </a>
+                  <a class="dropdown-item" href="/tuyendung/ketquahoso"> <i class="bi bi-file-earmark-text"></i>Kết quả hồ sơ </a>
                   <a class="dropdown-item" href="#"> <i class="bi bi-box"></i> Quản lý dịch vụ </a>
                   <hr>
                   <form class="" action="/logout" method="post">

@@ -3,9 +3,10 @@ package com.example.vieclam247.controller.client;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.vieclam247.model.Apply;
 import com.example.vieclam247.model.Job;
 import com.example.vieclam247.model.User;
+import com.example.vieclam247.service.ApplyService;
 import com.example.vieclam247.service.JobService;
 
 import com.example.vieclam247.service.UploadService;
@@ -34,11 +37,15 @@ public class TuyendungController {
     private final UserService userService;
     private final JobService jobService;
     private final UploadService uploadService;
+    private final ApplyService applyService;
 
-    public TuyendungController(UserService userService, JobService jobService, UploadService uploadService) {
+  
+    public TuyendungController(UserService userService, JobService jobService, UploadService uploadService,
+            ApplyService applyService) {
         this.userService = userService;
         this.jobService = jobService;
         this.uploadService = uploadService;
+        this.applyService = applyService;
     }
 
     // tt tài khoản tuyển dụng
@@ -205,5 +212,62 @@ public class TuyendungController {
         redirectAttributes.addFlashAttribute("message", "Xóa bài thành công!");
         return "redirect:/tuyendung/dschoduyetbaidang";
     }
+    // dsanh ứng viên
+    @GetMapping("/tuyendung/dsungvien")
+    public String getdsungvienall(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long idUser = (long) session.getAttribute("id");
+        List<String> statuses = Arrays.asList("Đang duyệt", "Chờ duyệt");
+        List<Apply> applies = applyService.getAppliesByUserIdAndStatuses2(idUser, statuses);
+        model.addAttribute("applies", applies);
+    
+        return "/client/tuyendung/dsungvienall";
+    }
+    @GetMapping("/tuyendung/loaiungvien/{id}")
+    public String getloaiungvien(Model model, @PathVariable long id, RedirectAttributes redirectAttributes) {
+        Apply apply = this.applyService.getApplyById(id);
+
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = currentTime.format(formatter);
+        apply.setTimefeedback(formattedDate);
+        apply.setStatus("Từ chối hồ sơ");
+        apply.setFeedback("Cảm ơn bạn đã quan tâm vị trí công việc bên chúng mình,"
+                + "rất tiếc bạn không đủ điều kiện cho vị trí công việc");
+        this.applyService.handSaveApply(apply);
+        redirectAttributes.addFlashAttribute("message", "Đã từ chối ứng viên");
+
+        return "redirect:/tuyendung/dsungvien";
+    }
+    @GetMapping("/tuyendung/pheduyet/{id}")
+    public String getMethodName(Model model, @PathVariable long id, RedirectAttributes redirectAttributes) {
+        Apply apply = this.applyService.getApplyById(id);
+
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = currentTime.format(formatter);
+        apply.setTimefeedback(formattedDate);
+        apply.setStatus("Đã Phê duyệt");
+        apply.setFeedback("Cảm ơn bạn đã quan tâm vị trí công việc bên chúng mình,"
+                + "Chúc mừng bạn đã trúng tuyển hay liên hệ sdt 09999999");
+        this.applyService.handSaveApply(apply);
+        redirectAttributes.addFlashAttribute("message", "Phê duyệt ứng viên");
+
+        return "redirect:/tuyendung/dsungvien";
+    }
+    @GetMapping("/tuyendung/ketquahoso")
+    public String gethosouv(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long idUser = (long) session.getAttribute("id");
+        List<String> statuses = Arrays.asList("Đã Phê duyệt", "Từ chối hồ sơ");
+        List<Apply> applies = applyService.getAppliesByUserIdAndStatuses2(idUser, statuses);
+        model.addAttribute("applies", applies);
+    
+        return "/client/tuyendung/ketquahoso";
+    }
+    
+    
+    
+    
 
 }
