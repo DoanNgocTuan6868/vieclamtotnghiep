@@ -147,7 +147,7 @@ public class TuyendungController {
         jobnew.setUser(user);
         this.jobService.handSaveJob(jobnew);
         redirectAttributes.addFlashAttribute("message", "Tạo bài tuyển dụng thành công!");
-        return "redirect:/tuyendung/dangvieclam";
+        return "redirect:/tuyendung/dschoduyetbaidang";
     }
 
     // danh sách chờ phê duyệt bài đăng

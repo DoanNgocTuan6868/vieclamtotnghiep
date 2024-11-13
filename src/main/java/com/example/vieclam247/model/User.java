@@ -66,7 +66,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Apply> applys;
-
+    
+    @OneToMany(mappedBy = "user")
+    private List<OderPlan> oderPlans;
     
 
     public long getId() {
@@ -192,6 +194,12 @@ public class User {
     }
     public void setDesclongcpn(String desclongcpn) {
         this.desclongcpn = desclongcpn;
+    }
+    public List<OderPlan> getOderPlans() {
+        return oderPlans;
+    }
+    public void setOderPlans(List<OderPlan> oderPlans) {
+        this.oderPlans = oderPlans;
     }
 
     

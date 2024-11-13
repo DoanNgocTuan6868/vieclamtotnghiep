@@ -27,6 +27,7 @@
             
                <!-- main css -->
               <link rel="stylesheet" type="text/css" href="/client/css/style.css"> 
+              <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
             </head>
             <body>
 
@@ -184,7 +185,7 @@
                               <div class="form-group row">
                                 <label class="col-sm-3 col-form-label text-right label">Mô tả công việc<span style="color: red" class="pl-2">*</span></label>
                                 <div class="col-sm-9">
-                                  <form:textarea type="text" class="form-control ${not empty errorContentjob ? 'is-invalid' : ''}" placeholder="Nhập mô tả công việc" rows="5" path="contentjob"></form:textarea>
+                                  <form:textarea type="text"  id="editor" class="form-control ${not empty errorContentjob ? 'is-invalid' : ''}" placeholder="Nhập mô tả công việc" rows="5" path="contentjob"></form:textarea>
                                   ${errorContentjob}
                                 </div>
                               </div>
@@ -389,7 +390,13 @@
                         </button>
                       </div>
                     </form:form>
-                    
+                    <script>
+                      ClassicEditor
+                          .create(document.querySelector('#editor'))
+                          .catch(error => {
+                              console.error(error);
+                          });
+                  </script>
                   </div>
                   <!-- Side bar -->
                   <div class="col-md-4 col-sm-12 col-12">

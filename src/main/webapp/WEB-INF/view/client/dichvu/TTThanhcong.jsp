@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
 
   <!-- bootstrap css -->
-  <link rel="stylesheet" type="text/css" href="client/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/client/css/bootstrap.min.css">
 
 
 
@@ -22,14 +22,14 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <!-- select 2 css -->
-  <link rel="stylesheet" href="client/css/select2.min.css">
+  <link rel="stylesheet" href="/client/css/select2.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- Owl Stylesheets -->
-  <link rel="stylesheet" href="client/css/owlcarousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="client/css/owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/client/css/owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="/client/css/owlcarousel/owl.theme.default.min.css">
    <!-- main css -->
-  <link rel="stylesheet" type="text/css" href="client/css/style.css"> 
+  <link rel="stylesheet" type="text/css" href="/client/css/style.css"> 
 </head>
 <body>
 <!-- main nav -->
@@ -38,7 +38,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light tjnav-bar">
   <!-- <a class="navbar-brand" href="#">Navbar</a> -->
   <a href="/" class="nav-logo">
-    <img src="client/img/techjobs_bgb.png">
+    <img src="/client/img/techjobs_bgb.png">
   </a>
   <button class="navbar-toggler tnavbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <!-- <span class="navbar-toggler-icon"></span> -->
@@ -58,7 +58,7 @@
 <div class="container-fluid clear-left clear-right">
   <div class="main-banner">
     <div class="banner-image">
-      <img src="client/img/banner2.jpg" alt="banner-image">
+      <img src="/client/img/banner2.jpg" alt="banner-image">
     </div>
   </div>
   <div class="banner-content">
@@ -165,7 +165,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="client/js/readmore.js"></script>
+<script type="text/javascript" src="/client/js/readmore.js"></script>
     <script type="text/javascript">
       $('.catelog-list').readmore({
         speed: 75,
@@ -176,15 +176,15 @@
     </script>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="client/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="client/js/popper.min.js"></script>
-    <script src="client/js/bootstrap.min.js"></script>
-    <script src="client/js/select2.min.js"></script>
-    <script src="client/js/jobdata.js"></script>
+    <script src="/client/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/client/js/popper.min.js"></script>
+    <script src="/client/js/bootstrap.min.js"></script>
+    <script src="/client/js/select2.min.js"></script>
+    <script src="/client/js/jobdata.js"></script>
 
     <!-- <script type="text/javascript" src="js/pagination.js"></script> -->
     <!-- Owl Stylesheets Javascript -->
-    <script src="client/js/owlcarousel/owl.carousel.js"></script>
+    <script src="/client/js/owlcarousel/owl.carousel.js"></script>
     <!-- Read More Plugin -->
 
     

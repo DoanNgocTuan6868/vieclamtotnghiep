@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.vieclam247.model.OderPlan;
 import com.example.vieclam247.model.Plan;
+import com.example.vieclam247.service.PlanService;
 import com.example.vieclam247.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +23,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PlanController {
     private final UserService userService;
-    public PlanController(UserService userService) {
+    private final PlanService planService;
+    
+    public PlanController(UserService userService, PlanService planService) {
         this.userService = userService;
+        this.planService = planService;
     }
+
     @GetMapping("/admin/plan")
     public String getPlanPageAdmin(Model model) {
         List<Plan> listPlan = this.userService.getAllPlan();
@@ -79,7 +85,14 @@ public class PlanController {
         this.userService.deletePlan(id);
         return "redirect:/admin/plan";
     }
+    @GetMapping("/admin/planOrder")
+    public String getPlanOrderAdmin(Model model) {
+        List<OderPlan> oderPlans = this.planService.getOrderPhan();
+        model.addAttribute("listOrder", oderPlans);
+        return "/admin/plan/showOder";
+    }
     
+
     
     
     
